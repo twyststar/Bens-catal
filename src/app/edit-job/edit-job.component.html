@@ -1,0 +1,19 @@
+
+  <div *ngIf="childSelectedJob" class="well">
+    <h3>{{childSelectedJob.title}}</h3>
+    <hr>
+    <h3>Edit Job</h3>
+    <label>Enter Job Title:</label>
+    <input [(ngModel)]="childSelectedJob.title">
+    <label>Enter Job Description:</label>
+    <input [(ngModel)]="childSelectedJob.description">
+    <label>Enter Job Pay:</label>
+    <input [(ngModel)]="childSelectedJob.pay">
+    <label>Enter Job Location:</label>
+    <input [(ngModel)]="childSelectedJob.location">
+    <label>Enter Job Hours:</label>
+    <input [(ngModel)]="childSelectedJob.hours">
+    <label>Enter Job Contact:</label>
+    <input [(ngModel)]="childSelectedJob.contact">
+    <button (click)="finishedEditing()">Done</button>
+  </div>

@@ -1,0 +1,41 @@
+<h2>Jobs</h2>
+  <div class="col-xs-9">
+    <div *ngFor="let job of JobList" class="panel panel-default">
+      <div (click)="toggleInfo(job)" class="panel-heading">
+        <a><h3>{{job.title}}</h3></a>
+      </div>
+      <div  *ngIf='job.show' class="panel-body">
+        <ul>
+          <li>{{job.description}}</li>
+          <li>{{job.pay}}</li>
+          <li>{{job.hours}}</li>
+          <li>{{job.location}}</li>
+        </ul>
+      </div>
+      <div *ngIf='job.show' class="panel-footer">
+        <h4>Contact: {{job.contact}}</h4>
+        <button (click)="editJob(job)">Edit Listing</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-3">
+    <app-edit-job [childSelectedJob]="selectedJob" (doneButtonClickedSender)="finishedEditing()"></app-edit-job>
+    <button (click)="addJob()">Add a New Job</button>
+    <div *ngIf="jobForm" class="well">
+      <h3>Add Job</h3>
+      <label>Enter Job Title:</label>
+      <input #newTitle>
+      <label>Enter Job Description:</label>
+      <input #newDescription>
+      <label>Enter Job Pay:</label>
+      <input #newPay>
+      <label>Enter Job Hours:</label>
+      <input #newHours>
+      <label>Enter Job Location:</label>
+      <input #newLocation>
+      <label>Enter Job Contact:</label>
+      <input #newContact>
+      <button (click)="createJob(newTitle.value, newDescription.value, newPay.value, newHours.value, newLocation.value,  newContact.value);">Add</button>
+    </div>
+
+  </div>
