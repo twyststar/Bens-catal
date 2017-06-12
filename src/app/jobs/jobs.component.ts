@@ -13,12 +13,13 @@ export class JobsComponent implements OnInit {
   ngOnInit() {
   }
   JobList: Job[] = [
-  new Job('Pokemon Trainer', 'Gotta catch them all', 15, 'full-time', 'Seattle', 'Professor Oak', false),
-  new Job('Mattress Tester', 'Test mattresses', 100, 'full-time', 'Bellevue', 'Serta Sheep', false),
-  new Job('Squire', 'Squire, attend me!', 0, 'full-time', 'Imladris', 'Sir Galvanon', false)
+  new Job('Pokemon Trainer', 'Gotta catch them all', 15, 'full-time', 'Seattle', 'Professor Oak', false, '1999'),
+  new Job('Mattress Tester', 'Test mattresses', 100, 'full-time', 'Bellevue', 'Serta Sheep', false, '1999'),
+  new Job('Squire', 'Squire, attend me!', 0, 'full-time', 'Imladris', 'Sir Galvanon', false, '1999')
   ]
   jobForm = null;
   selectedJob = null;
+  currentTime = new Date();
   toggleInfo(job){
 
     if(job.show){
@@ -38,7 +39,7 @@ export class JobsComponent implements OnInit {
    this.jobForm = true;
  }
  createJob(title: string, description: string, pay:  number, hours: string, location: string, contact: string) {
-  var newJob = new Job (title, description, pay, hours, location, contact, false);
+  var newJob = new Job (title, description, pay, hours, location, contact, false, this.currentTime.toString());
   this.JobList.push(newJob);
   this.jobForm = null;
  }
